@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설문조사 양식</title>
+</head>
+
+<body>
+    <header>
+        <h1>설문조사 양식</h1>
+        <p>모든 항목에 빠짐없이 체크해주십시오.</p>
+    </header>
+    <hr>
+    <main>
+        <form>
+            <fieldset>
+                <legend>개인정보</legend>
+                <label for="name">이름</label>
+                <input type="text" id="name" placeholder="본명을 입력하세요" nama="name" />
+                <p>성별</p>
+                <input type="radio" id="man" name="sex">
+                <label for="man">남성</label>
+                <input type="radio" id="women" name="sex">
+                <label for="women">여성</label>
+                <p>연령대가 어떻게 되십니까?</p>
+                <input type="radio" id="teen" name="age">
+                <label for="teen">10대</label>
+                <input type="radio" id="twenty" name="age">
+                <label for="twenty">20대</label>
+                <input type="radio" id="thirty" name="age">
+                <label for="thirty">30대</label>
+                <input type="radio" id="fourty" name="age">
+                <label for="fourty">40대</label>
+                <input type="radio" id="fifty" name="age">
+                <label for="fifty">50대</label>
+                <input type="radio" id="other" name="age">
+                <label for="other">그 외</label>
+            </fieldset>
+            <fieldset>
+                <legend>설문</legend>
+
+                <p>평소에 운동을 얼마나 자주하십니까?</p>
+                <input type="radio" id="little" name="numOfExercises">
+                <label for="little">주 1~2회</label>
+                <input type="radio" id="usually" name="numOfExercises">
+                <label for="usually">주 3~5회</label>
+                <input type="radio" id="always" name="numOfExercises">
+                <label for="always">거의 매일</label>
+                <input type="radio" id="never" name="numOfExercises">
+                <label for="never">전혀 안한다</label>
+
+                <p>선호하는 운동이 있습니까? </p>
+                <input type="checkbox" id="weightTraining" name="sports">
+                <label for="weightTraining">웨이트 트레이닝</label>
+                <input type="checkbox" id="crossFit" name="sports">
+                <label for="crossFit">크로스핏</label>
+                <input type="checkbox" id="running" name="sports">
+                <label for="running">런닝</label>
+                <input type="checkbox" id="hiking" name="sports">
+                <label for="hiking">등산</label>
+                <input type="checkbox" id="swimming" name="sports">
+                <label for="swimming">수영</label>
+            </fieldset>
+            <fieldset>
+                <legend>기타 의견</legend>
+                <textarea rosw="3" cols="30" name="comment"></textarea>
+            </fieldset>
+            <br/>
+            <input type="submit">
+        </form>
+    </main>
+    <hr>
+    <footer>
+        <p>입력하느라 수고하셨습니다.</p>
+    </footer>
+</body>
+
+</html>
