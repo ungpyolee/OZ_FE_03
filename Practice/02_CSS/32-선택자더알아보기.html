@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 더 알아보기</title>
+    <style>
+        /* 
+            기호와 함께 사용하는 속성 선택자
+            * : 값의 포함 여부
+            ^ : 값의 시작 여부
+            $ : 갑의 끝 여부
+        */
+        img[alt="대전"]{
+            border:1px solid black;
+        }
+        [width ^="1"]{
+            border: 3px dashed red;
+        }
+
+        body em{
+            color: blue;
+        }
+
+        #sam ~ p{
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <img src="../01_HTML/images/daejeon.jpg" width="120" alt="대전">
+    <img src="../01_HTML/images/daejeon.jpg" width="120" >
+    <img src="../01_HTML/images/daejeon.jpg" width="120" id="sam">
+    <p>대전은 유노코딩의 고향</p>
+    <p>대전광역시 유성구</p>
+    <p>한빛탑 맞은 편 <em>엑스포다리</em></p>
+    <p>엑스포다리 아래 갑천</p>
+</body>
+</html>
