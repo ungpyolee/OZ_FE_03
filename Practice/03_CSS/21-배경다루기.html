@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경 다루기</title>
+    <style>
+        /* 
+            -clip 요소 내 배경의 적용범위 : border-box, padding-box, content-box
+        */
+        div{
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            border: 20px double green;
+
+            /* background-color: yellowgreen; */
+            background-clip: border-box;
+
+            background-image: url(../01_HTML/images/daejeon.jpg);
+            background-size: 280px 280px;
+            background-repeat: no-repeat;
+
+            background-origin: border-box;
+            background-position: 100px 50px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
