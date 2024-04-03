@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 2. 짝수 확인하기
+        // const userAnswer = prompt("좋아하는 숫자는 ?");
+
+        // if( userAnswer % 2 == 1 ){
+        //     document.write("홀수 입니다.");
+        // }else{
+        //     document.write("짝수 입니다.");
+        // }
+
+        // 3. 짝수이면서 3의 배수인지 확인하기
+        // const userAnswer = prompt("좋아하는 숫자는 ?");
+
+        // if( userAnswer % 2 === 0 && userAnswer % 3 === 0 ){
+        //     document.write("짝수이면서 3의 배수 입니다.");
+        // }else if( userAnswer % 2 === 0 ){
+        //     document.write("짝수 입니다.");
+        // }else if( userAnswer % 3 === 0 ){
+        //     document.write("3의 배수입니다.");
+        // }else{
+        //     document.write("홀수입니다.");
+
+        // }
+
+        // 4. 빈 배열인지 확인하기
+        // const array = [];
+        // if( array.length === 0 ){
+        //     alert("빈 배열입니다.")
+        // }else{
+        //     alert("빈 배열이 아닙니다.")
+        // }
+
+        // const array = [];
+        // if( !array.length ){
+        //     alert("빈 배열입니다.")
+        // }else{
+        //     alert("빈 배열이 아닙니다.")
+        // }
+
+        // 5. 성인인지 물어보기
+        // const age = Number(prompt("나이를 입력해주세요"));
+
+        // if( age >= 18 ){
+        //     document.write("성인입니다.");
+        // }else{
+        //     document.write("미성년입니다.");
+        // }
+
+        // 6. 로그인 하기
+        // const id = "hello";
+        // const password = "world";
+
+        // const userId = prompt("아이디");
+        // const userPassword = prompt("비밀번호");
+
+        // if( userId === id ){
+        //     if( userPassword === password){
+        //         alert("로그인에 성공했습니다.")
+        //     }else{
+        //         alert("비밀번호가 틀렸습니다.")
+        //     }
+
+        // }else{
+        //     alert("존재하지 않는 아이디입니다.")
+        // }
+
+        // 7. 입력된 달은 어떤 계절인지 알려주기
+        // const month = Number(prompt("월을 입력해주세요."));
+
+        // if( month < 1 || month > 12 ){
+        //     alert("1에서 12사이의 값을 입력해주세요.");
+        // } else if( 3 <= month && month <= 5 ){
+        //     alert("봄.");
+
+        // } else if( 6 <= month && month <= 8 ){
+        //     alert("여름.");
+
+        // } else if( 9 <= month && month <= 11 ){
+        //     alert("가을.");
+
+        // } else{
+        //     alert("겨울.");
+
+        // }
+
+        // const month = Number(prompt("월을 입력해주세요."));
+        // month < 1 || month > 12 ? alert("1에서 12사이의 값을 입력해주세요.") :
+        // 3 <= month && month <= 5 ? alert("봄.") :
+        // 5 <= month && month <= 8 ? alert("여름.") :
+        // 9 <= month && month <= 11 ? alert("가을.") :
+        // alert("겨울");
+
+        // const month = Number(prompt("월을 입력해주세요."));
+        // switch(month){
+        //     case 3:
+        //     case 4:
+        //     case 5:
+        //         alert("봄."); break;
+        //     case 6:
+        //     case 7:
+        //     case 8:
+        //         alert("여름."); break;
+        //     case 9:
+        //     case 10:
+        //     case 11:
+        //         alert("가을."); break;
+        //     case 12:
+        //     case 1:
+        //     case 2:
+        //         alert("겨울."); break;
+        //     default:
+        //         alert("1에서 12사이의 숫자를 입력하세요"); break;
+        // }
+
+        // 8. 점수에 따라 학점 매기기
+        // const score = Number(prompt("점수를 입력"));
+
+        // if( score >= 90 ){
+        //     alert('A');
+        // }else if( score >= 80){
+        //     alert("B");
+        // }else if( score >= 70){
+        //     alert("C");
+        // }else if( score >= 60){
+        //     alert("D");
+        // }else{
+        //     alert("F");
+        // }
+
+        // switch( Math.floor(score / 10)){
+        //     case 10:
+        //     case 9:
+        //         alert('A'); break;
+        //     case 8:
+        //     alert('B'); break;
+        //     case 7:
+        //     alert('C'); break;
+        //     case 6:
+        //     alert('D'); break;
+        //     default:
+        //     alert('F'); break;
+
+        // }
+
+        // 9. 여러 퀴즈 풀어서 몇 개 맞췄는지 알려주기
+
+        // 이것은 오류가 있는 코드 
+        // const answer1 = 'HTML'
+        // const answer2 = 'CSS'
+        // const answer3 = 'JS'
+
+        // const userAnswer1 = prompt("웹 페이지의 구조를 담당하는 언어는?");
+        // const userAnswer2 = prompt("웹 페이지의 디자인을 담당하는 언어는?");
+        // const userAnswer3 = prompt("웹 페이지의 기능을 담당하는 언어는?");
+        // let count = 0;
+
+        // switch( true ){
+        //     case answer1 === userAnswer1 :
+        //         count += 1 ;
+        //     case answer2 === userAnswer2 :
+        //         count += 1;
+        //     case answer3 === userAnswer3 :
+        //         count += 1;
+        //         break; 
+        //     default:
+        //         break;
+        // }
+        // alert(count);
+
+
+
+        // 이것은 해결된 코드
+        // const answer1 = 'HTML'
+        // const answer2 = 'CSS'
+        // const answer3 = 'JS'
+
+        // const userAnswer1 = prompt("웹 페이지의 구조를 담당하는 언어는?");
+        // const userAnswer2 = prompt("웹 페이지의 디자인을 담당하는 언어는?");
+        // const userAnswer3 = prompt("웹 페이지의 기능을 담당하는 언어는?");
+        // let count = 0;
+
+        // for(let i =1; i <= 3; i++){
+        //     switch(i){
+        //         case 1:
+        //             if(answer1 === userAnswer1){
+        //                 count++;
+        //             }
+        //             break;
+        //         case 2:
+        //             if(answer2 === userAnswer2){
+        //                 count++;
+        //             }
+        //             break;
+        //         case 3:
+        //             if(answer3 === userAnswer3){
+        //                 count++;
+        //             }
+        //         default:
+        //             break;
+        //     }
+        // }
+
+        // alert(count);
+
+       
+
+
+        // if( count >= 3 ){
+        //     alert('A'); 
+        // }else if( count >= 2){
+        //     alert("B");
+        // }else if( count >= 1){
+        //     alert("C");
+        // }else{
+        //     alert("F");
+        // }
+    </script>
+</body>
+
+</html>
