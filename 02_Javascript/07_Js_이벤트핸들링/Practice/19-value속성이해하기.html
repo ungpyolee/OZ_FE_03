@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>value속성 이해하기</title>
+</head>
+<body>
+    <input id="talk">
+    <input type="button" id="push" value="push">
+
+    <form id="form">
+        <input name="name">
+        <input name="nick">
+        <input type="submit">
+    </form>
+
+    <script>
+        // const input = document.getElementById("talk");
+        // const button = document.getElementById("push");
+
+        // input.addEventListener("keyup", function(e){
+        //     console.log(e.target.value)
+        // })
+        // button.addEventListener("click", function(){
+        //     const p = document.createElement("p")
+        //     p.textContent = input.value;
+        //     document.body.append(p);
+        // })
+
+            const form = document.getElementById("form")
+            form.addEventListener("submit", function(event){
+                event.preventDefault();
+                const p = document.createElement("p");
+                p.textContent = `${event.target.name.value}의 별명은 ${event.target.nick.value}`
+                document.body.append(p);
+                event.target.name.value = ""
+                event.target.nick.value = ""
+            })
+    </script>
+</body>
+</html>

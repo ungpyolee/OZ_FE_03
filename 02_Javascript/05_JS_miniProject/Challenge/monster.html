@@ -42,9 +42,7 @@
                 // }
                 if(monsterHP < 0){
                     monsterHP = 0;
-                    console.log(monsterHP);
                     const lastStrong = document.querySelector("strong:last-child");
-                    console.log(lastStrong.textContent);
                     lastStrong.textContent = `몬스터의 HP가 ${monsterHP}으로 사망하였습니다.`
                 }
             }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 1. 출석 체크하기
+        const attendance = ['철수','영희','진수','미애','수지','은우','고은','도현','지민','지수'];
+
+        const classroom = attendance.filter(()=> Math.random() < 0.7);
+
+        console.log(classroom)
+
+        for(let i = 1; i <= 10; i++){
+            console.log(`교수님: ${i}번 ${attendance[i - 1]}학생 왔나요?`)
+        }
+
+        
+    </script>
+</body>
+</html>
