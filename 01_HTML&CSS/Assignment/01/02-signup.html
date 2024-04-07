@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 폼 만들기</title>
+</head>
+<body>
+    <h1>오즈코딩스쿨 회원가입</h1>
+
+    <form id="form" action="#">
+        <input type="email" name="email" placeholder="이메일을 입력해주세요." required><br>
+        <input type="text" name="name" placeholder="이름을 입력해주세요." required><br>
+        <input type="password" name="pw1" placeholder="비밀번호를 입력해주세요" required><br>
+        <input type="password" name="pw2" placeholder="비밀번호를 다시 입력해주세요." required><br>
+        <input type="radio" name="gender" value="남성" required>남성
+        <input type="radio" name="gender" valye="여성">여성<br>
+        
+        <select name="phone1">
+            <option value="010" selected>010</option>
+            <option value="011" >011</option>
+            <option value="012" >012</option>
+        </select> -
+        <input type="number" required name="phone2" oninput="if (this.value.length > 4) this.value = this.value.slice(0, 4);"> -
+        <input type="number" required name="phone3" oninput="if (this.value.length > 4) this.value = this.value.slice(0, 4);"><br>
+
+        <input type="submit" name="submitBtn" value="인증번호 전송" title="인증번호 전송">
+        
+
+        <div id="authBox" style="display:none;">
+            <input type="number" name="auth" placeholder="인증번호를 입력해주세요" oninput="if (this.value.length > 6) this.value = this.value.slice(0, 6);">
+            <input type="submit" name="authBtn" value="인증번호 확인" title="인증번호 확인"> 
+        </div>
+    </form>
+    <script>
+        const form = document.getElementById("form");
+        let authNum ;
+        console.log(form);
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+            // info
+            let userEmail = event.target.email.value;
+            let userName = event.target.name.value;
+            let userPw1 = event.target.pw1.value;
+            let userPw2 = event.target.pw2.value;
+            let userGender = event.target.gender.value;
+            let userPhone1 = event.target.phone1.value;
+            let userPhone2 = event.target.phone2.value;
+            let userPhone3 = event.target.phone3.value;
+            let userPhone = userPhone1 + userPhone2 + userPhone3
+            let submitBtn = event.target.submitBtn;
+            
+            // auth 
+            let authBox = document.getElementById("authBox")
+            if(userPw1 !== userPw2){
+                let notice1 = document.createElement("p");
+                notice1.textContent = "비밀번호를 다르게 입력하셨습니다."
+                event.target.appendChild(notice1)
+                console.log(notice1);
+                return
+            }
+            if(userPhone2.length < 4 || userPhone3.length < 4){
+                let notice2 = document.createElement("p");
+                notice2.textContent = `전화번호를 잘못 입력하셨습니다. 예시 : 010 - 0000 - 0000`
+                event.target.appendChild(notice2)
+                return
+            }
+
+            authNum = Math.floor(Math.random() * 100000);
+            submitBtn.value = "인증번호 재전송"
+            authBox.style.cssText = "display: block;"
+            console.log(authNum);
+            
+            // let authBtn = event.target.authBtn;
+            // console.log(authBtn);
+            // authBtn.addEventListener("submit", function(auth){
+                //     auth.preventDefault();
+                //     alert("hi")
+                // });
+            })
+            // 인증번호를 발송 후 확인하는 과정 다음에 더 해보기
+    </script>
+</body>
+</html>
