@@ -53,22 +53,25 @@
             // auth 
             let authBox = document.getElementById("authBox")
             if(userPw1 !== userPw2){
-                let notice1 = document.createElement("p");
-                notice1.textContent = "비밀번호를 다르게 입력하셨습니다."
-                event.target.appendChild(notice1)
-                console.log(notice1);
+                // let notice1 = document.createElement("p");
+                // notice1.textContent = "비밀번호를 다르게 입력하셨습니다."
+                // event.target.appendChild(notice1)
+                // console.log(notice1);
+                alert("비밀번호를 잘못 입력하셨습니다.")
                 return
             }
             if(userPhone2.length < 4 || userPhone3.length < 4){
-                let notice2 = document.createElement("p");
-                notice2.textContent = `전화번호를 잘못 입력하셨습니다. 예시 : 010 - 0000 - 0000`
-                event.target.appendChild(notice2)
+                // let notice2 = document.createElement("p");
+                // notice2.textContent = `전화번호를 잘못 입력하셨습니다. 예시 : 010 - 0000 - 0000`
+                // event.target.appendChild(notice2)
+                alert(`전화번호를 잘못 입력하셨습니다. 예시 : 010 - 0000 - 0000`)
                 return
             }
 
             authNum = Math.floor(Math.random() * 100000);
             submitBtn.value = "인증번호 재전송"
-            authBox.style.cssText = "display: block;"
+            // event.target.removeChild(notice1, notice2);
+            // authBox.style.cssText = "display: block;"
             console.log(authNum);
             
             // let authBtn = event.target.authBtn;
