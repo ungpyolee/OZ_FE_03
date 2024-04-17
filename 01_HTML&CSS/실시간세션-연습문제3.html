@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 함수 선언식
+        function plusTen1(a){
+            return a + 10;
+        }
+        console.log(plusTen1(10));
+
+        // 함수 표현식
+        let plusTen2 = function(a){
+            return a + 10;
+        }
+
+        console.log(plusTen2(5));
+        
+        // 화살표 함수
+        
+        let plusTen3 = (a) => {
+            return a + 10;
+        }
+
+        console.log(plusTen3(3));
+
+        /* 화살표 함수 
+        1. 매개변수가 1개 뿐이면 소괄호 생략 가능 
+        2. 매개변수가 2개 이상이면 소괄호 생략 불가능
+        3. 함수코드가 한 줄이면 return 키워드와 중괄호를 생략 가능
+        4. 함수코드가 한 줄이고 객체를 리턴한다면 소괄호를 묶을 것
+        5. 함수가 두 줄 이상이면 return 키워드와 중괄호 생략 불가능
+        */
+
+    </script>
+</body>
+</html>

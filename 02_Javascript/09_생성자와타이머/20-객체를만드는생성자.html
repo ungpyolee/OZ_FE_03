@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function BestSigner(){
+        //     this.name = "VOS"
+        //     this.member = "박지헌, 최현준, 김경록"
+        //     this.singing = function(){
+        //         console.log("니 이름 불렀나 봐~")
+        //     }
+        // }
+
+        // const vos = new BestSigner();
+        // console.log(vos.name)
+        // console.log(vos.member)
+        // vos.singing();
+
+        function Signer(name, member){
+            this.name = name;
+            this.member = member;
+        }
+
+        const noel = new Signer("노을", "강균성, 전우성, 이상곤, 나성호");
+
+        console.log(noel.name);
+        console.log(noel.member);
+    </script>
+</body>
+</html>

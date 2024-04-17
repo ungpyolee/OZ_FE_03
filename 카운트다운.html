@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 class="text-center" id="count-down-timer"></h1>
+    <button id="start">인증번호 전송</button>
+    <input type="text" id="authInput">
+    <button id="stop">확인</button>
+    <script>
+        const startBtn = document.getElementById("start");
+        const stopBtn = document.getElementById("stop");
+        const authInput = document.getElementById("authInput");
+        authInput.style.display = "none";
+        let authNum;
+        function paddedFormat(num) {
+            return num < 10 ? '0' + num : num;
+        }
+
+        function startCountDown(duration, element) {
+            let secondsRemaining = duration;
+            let min = 0;
+            let sec = 0;
+
+            let countInterval = setInterval(function () {
+                min = parseInt(secondsRemaining / 60);
+                sec = parseInt(secondsRemaining % 60);
+
+                element.textContent = `${paddedFormat(min)}:${paddedFormat(sec)}`;
+
+                secondsRemaining = secondsRemaining - 1;
+                if (secondsRemaining < 0) {
+                    clearInterval(countInterval)
+                };
+            }, 1000);
+            
+            stopBtn.addEventListener('click',function(){
+                console.log(authInput.value);
+                if(authNum === authInput.value){
+                    clearInterval(countInterval)
+                    alert("인증완료");
+
+                }else{
+                    alert("인증번호가 틀렸습니다.");
+                }
+        });
+        }
+        startBtn.addEventListener('click', function () {
+            authInput.style.display = "block";
+            alert("인증번호가 발송되었습니다.");
+            authNum = '123456';
+            // authNum = Math.floor(Math.random() * 100000);
+            console.log(authNum);
+            this.textContent = "인증번호 재발송";
+            let time_minutes = 3;   // Value in minutes
+            let time_seconds = 0;  // Value in seconds
+
+            let duration = time_minutes * 60 + time_seconds;
+
+            element = document.querySelector('#count-down-timer');
+            element.textContent =
+                `${paddedFormat(time_minutes)}:${paddedFormat(time_seconds)}`;
+
+            startCountDown(--duration, element);
+        } )
+        
+    </script>
+</body>
+
+</html>
