@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+</head>
+
+<body>
+    <p id="item">이봉주</p>
+    <button id="set">SET</button>
+    <button id="get">GET</button>
+    <button id="remove">REMOVE</button>
+    <button id="clear">CLEAR</button>
+
+    <script>
+        const item = document.getElementById("item");
+        document.getElementById("set").addEventListener('click',function(){
+            localStorage.setItem("마라토너", item.textContent);
+        })
+        document.getElementById("get").addEventListener("click",function(){
+            alert(localStorage.getItem("마라토너"));
+        })
+        document.getElementById("remove").addEventListener('click',function(){
+            localStorage.removeItem("마라토너");
+        })
+        document.getElementById("clear").addEventListener("click",function(){
+            localStorage.clear();
+        })
+
+        localStorage.setItem("커피", JSON.stringify({
+            name: "에티오피아",
+            taste : "산미"
+        }))
+    </script>
+
+</body>
+
+</html>
+
+<!-- 
+    로컬스토리지로부터 데이터를 읽거나 쓸 때에는 메소드를 이용해 접근
+
+    setItem("key", "value") - 키와 밸류를 전달받아 저장 
+    getItem("key") - 전달받은 키에 해당하는 밸류를 반환
+    removeItem("key") - 전달받은 키에 해당하는 데이터 삭제
+    clear() - 모든 데이터 삭제 
+ -->
