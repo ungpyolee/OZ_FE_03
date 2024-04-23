@@ -13,6 +13,7 @@ const button = document.getElementById("filter-button")
 const select = document.getElementById("filter-select")
 const more = document.getElementById('more');
 const tothetop = document.getElementById('tothetop');
+const reset = document.getElementById('reset')
 
 const currentDogs = [];
 
@@ -90,4 +91,22 @@ more.addEventListener('click',function(){
 tothetop.addEventListener('click',function(){
     // scrollTo : 주어진 위치로 스크롤을 이동한다.
     window.scrollTo({ top : 0 });
+})
+
+
+reset.addEventListener('click',function(){
+    currentDogs = []
+    main.innerHTML =''
+
+    request1.open('get',apiRandomDogs)
+    request1.addEventListener('load',function(){
+        currentDogs = []
+        main.innerHTML =''
+        const response = JSON.parse(request1.response)
+        response.message.forEach(function(item){
+            currentDogs.push(item)
+            displayDogs(item)
+        })
+    })
+    request1.send()
 })
