@@ -77,7 +77,7 @@ app.get('/refresh', (req, res) =>{
     if(!cookies?.jwt) return res.sendStatus(403);
     const refreshToken = cookies.jwt;
     // refreshToken이 데이터베이스에 있는 토큰인지 확인
-    if(!refreshToken.includes(refreshToken)){
+    if(!refreshTokens.includes(refreshToken)){
         return res.sendStatus(403)
     }
 
