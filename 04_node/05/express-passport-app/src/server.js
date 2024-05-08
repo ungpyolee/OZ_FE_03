@@ -1,8 +1,13 @@
 const express = require('express');
 const path = require('path');
 const { default : mongoose } = require('mongoose');
+const passport = require('passport')
 const User = require('./models/users.model')
 const app = express();
+
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
@@ -27,10 +32,28 @@ app.get('/login', (req, res) => {
 
 });
 
+app.post('/login', (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if(err) {
+            return next(err);
+        }
+
+        if(!user){
+            return res.json({msg : info})
+        }
+
+        req.logIn(user, function(err) {
+            if(err) { return next(err)}
+            res.redirect('/')
+        })(req, res, next)
+    })
+})
+
 app.get('/signup', (req, res) => {
     res.render('signup');
 
 });
+
 
 app.post('/signup', async (req, res) => {
     // user 객체를 생성합니다.
