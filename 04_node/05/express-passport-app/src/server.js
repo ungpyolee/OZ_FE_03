@@ -39,6 +39,7 @@ app.post('/login', (req, res, next) => {
         }
 
         if(!user){
+            console.log(`no user found`)
             return res.json({msg : info})
         }
 
