@@ -3,7 +3,9 @@ import './ExpenseList.css'
 import ExpenseItem from './ExpenseItem'
 
 export default class ExpenseList extends Component {
+    
   render() {
+    console.log('@@@', this.props.initialExpenses)
     return (
         // <React.Fragment> 감싸는 div를 굳이 만들지 않고 사용할 수 있다. 글씨는 생략가능 
       <>
