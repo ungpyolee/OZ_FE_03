@@ -5,13 +5,18 @@ import ExpenseItem from './ExpenseItem'
 export default class ExpenseList extends Component {
     
   render() {
-    console.log('@@@', this.props.initialExpenses)
     return (
         // <React.Fragment> 감싸는 div를 굳이 만들지 않고 사용할 수 있다. 글씨는 생략가능 
       <>
         <ul className='list'>
-            {/* {Expense Item} */}
-            <ExpenseItem />
+          {this.props.initialExpenses.map(expense => {
+            return (
+              <ExpenseItem key={expense.id} expense={expense}
+                handleDelete={this.props.handleDelete}
+              />
+            )
+          })}
+      
         </ul>
         <button className='btn'>
             목록 지우기
