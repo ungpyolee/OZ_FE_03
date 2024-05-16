@@ -3,25 +3,18 @@ import "./App.css"
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
 
-export default class App extends Component {
+const App = () => {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      expenses: [
-        { id : 1, charge: '콜라', amount:'2000'},
-        { id : 2, charge: '빵', amount:'1000'},
-        { id : 3, charge: '맥북', amount:'20000'}
-      ]
-    }
+  const [expenses, setExpenses] = useState([
+    { id : 2, charge: '빵', amount:'1000'},
+    { id : 3, charge: '맥북', amount:'20000'}
+  ])
+
+  const handleDelete = (id) => {
+    const newExpense = expenses.filter(expense => expense.id !==id );
+    setExpenses(newExpense)
   }
 
-  handleDelete = (id) => {
-    const newExpense = this.state.expenses.filter(expense => expense.id !==id );
-    this.setState({expenses: newExpense})
-  }
-
-  render() {
     return(
       <main className="main-container">
         <div className="sub-container">
@@ -45,5 +38,7 @@ export default class App extends Component {
         </div>
       </main>
     )
-  }
+  
 }
+
+export default App;
