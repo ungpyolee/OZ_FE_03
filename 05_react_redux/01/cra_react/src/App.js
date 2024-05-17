@@ -7,8 +7,8 @@ import Alert from "./components/Alert";
 const App = () => {
 
   const [expenses, setExpenses] = useState([
-    { id : 2, charge: '빵', amount:'1000'},
-    { id : 3, charge: '맥북', amount:'20000'}
+    { id : 2, charge: '빵', amount:1000},
+    { id : 3, charge: '맥북', amount:20000}
   ])
 
   const [charge, setCharge] = useState("");
@@ -31,6 +31,7 @@ const App = () => {
   const handleDelete = (id) => {
     const newExpense = expenses.filter(expense => expense.id !==id );
     setExpenses(newExpense)
+    handleAlert({type: "danger", text: "아이템이 삭제되었습니다."})
   }
 
   const handleAlert = ({type, text}) => {
