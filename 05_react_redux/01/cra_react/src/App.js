@@ -1,4 +1,4 @@
-import { Component, useState } from "react";
+import { useState } from "react";
 import "./App.css"
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
@@ -34,6 +34,9 @@ const App = () => {
     handleAlert({type: "danger", text: "아이템이 삭제되었습니다."})
   }
 
+  const clearItems = () => {
+    setExpenses([]);
+  }
   const handleAlert = ({type, text}) => {
     setAlert({show: true, type, text});
     setTimeout(() => {
@@ -44,13 +47,22 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (charge !== "" && amount > 0){
-      const newExpense = {id: crypto.randomUUID(), charge, amount};
-
-      const newExpenses = [...expenses, newExpense];
-      setExpenses(newExpenses);
+      if(edit){
+        const newExpense = expenses.map(item => {
+          return item.id === id ? { ...item, charge, amount } : item;
+        });
+        setExpenses(newExpense);
+        setEdit(false);
+        handleAlert({ type : "success", text : "아이템이 수정되었습니다."})
+        
+      } else {
+        const newExpense = {id : crypto.randomUUID(), charge, amount};
+        const newExpenses = [...expenses, newExpense];
+        setExpenses(newExpenses);
+        handleAlert({ type : "success", text : "아이템이 생성되었습니다."})
+      }
       setCharge("");
       setAmount(0);
-      handleAlert({ type : "success", text : "아이템이 생성되었습니다."})
     } else{
       console.log('error');
       handleAlert({
@@ -77,12 +89,12 @@ const App = () => {
 
           <div style={{width: '100%', backgroundColor : 'white', padding : '1rem'}}>
             {/* {Expense Form} */}
-            <ExpenseForm charge={charge} handleSubmit={handleSubmit} handleCharge={handleCharge} amount={amount} handleAmount={handleAmount}/>
+            <ExpenseForm edit={edit} charge={charge} handleSubmit={handleSubmit} handleCharge={handleCharge} amount={amount} handleAmount={handleAmount}/>
           </div>
 
           <div style={{width: '100%', backgroundColor : 'white', padding : '1rem'}}>
             {/* {Expense List} */}
-            <ExpenseList initialExpenses = {expenses} handleDelete={handleDelete} handleEdit={handleEdit}/>
+            <ExpenseList expenses={expenses} clearItems={clearItems} initialExpenses = {expenses} handleDelete={handleDelete} handleEdit={handleEdit}/>
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'start', marginTop: '1rem'}}>

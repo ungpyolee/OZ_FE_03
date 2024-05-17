@@ -17,7 +17,6 @@ const ExpenseItem = ({expense, handleDelete, handleEdit}) => {
         <button 
           onClick={() => handleDelete(expense.id)}
           className='clear-btn'>
-          
             <MdDelete />
         </button>
     </div>
