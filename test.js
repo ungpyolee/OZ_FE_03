@@ -86,3 +86,35 @@ var people = [
 for(var {name:n , family: {father : f, mother : m, sister : s, brother : b }, age : a} of people) {
     console.log(s);
 }
+
+// 불변성
+const array = [1,2,3,4];
+const sameArray = array;
+
+console.log(sameArray, (array === sameArray));
+sameArray.push(5);
+console.log(sameArray, (array === sameArray));
+
+const array2 = [1,2,3,4];
+const differentArray = [...array2, 5, 6];
+
+console.log(differentArray, (array2 === differentArray));
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5];
+Array.prototype.push.apply(arr1, arr2);
+
+console.log(arr1, arr2)
+
+const obj1 = {
+    a : 'A',
+    b : 'B'
+};
+
+const obj2 = {
+    c : 'C',
+    d : 'D'
+}
+
+const objWrap = {...obj1, ...obj2};
+console.log(objWrap);
