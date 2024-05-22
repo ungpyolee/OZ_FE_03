@@ -1,20 +1,51 @@
-import React from 'react'
-import { styled } from 'styled-components' 
+import { useEffect, useState } from "react";
+import { styled } from "styled-components"
 
 
 const Nav = () => {
+
+  const [show, setShow] = useState("false");
+
+  const listener = () => {
+    if (window.scrollY > 50) {
+      setShow("true");
+    } else {
+      setShow("false");
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', listener);
+    return () => {
+      window.removeEventListener('scroll', listener);
+    }
+  }, [])
+
   return (
-    <NavWrapper>
+    <NavWrapper show={show}>
       <Logo>
         <img
           alt="logo"
-          src="/public/images/apple-logo.png"
-          onClick={()=> (window.location.herf = '/')}
-          />
+          src="/images/apple-logo.png"
+          onClick={() => (window.location.href = "/")}
+        />
       </Logo>
     </NavWrapper>
   )
 }
+
+const Logo = styled.a`
+  padding: 0;
+  width: 70px;
+  font-size: 0;
+  display: inline-block;
+  margin-bottom: 10px;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+`
 
 const NavWrapper = styled.nav`
   position : fixed;
@@ -22,7 +53,7 @@ const NavWrapper = styled.nav`
   left: 0;
   right : 0;
   height : 70px;
-  background-color : #000000;
+  background-color : ${props => props.show === "true" ? "#000000" : "#000000"} ;
   display : flex;
   justify-content : space-between;
   align-items : center;
@@ -31,17 +62,6 @@ const NavWrapper = styled.nav`
   z-index : 3;
 `
 
-const Logo = styled.a`
-  padding : 0;
-  width : 70px;
-  font-size : 0;
-  display : inline-block;
-  margin-bottom : 10px;
 
-  img {
-    display : block;
-    width : 100%;
-  }
-`
 
 export default Nav
