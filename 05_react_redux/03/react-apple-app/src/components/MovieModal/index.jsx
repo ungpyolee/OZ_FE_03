@@ -1,5 +1,5 @@
 import React from 'react'
-import { imageBasePath } from '../constant'
+import { imageBasePath } from '../../constant'
 import './MovieModal.css'
 
 const MovieModal = ({
