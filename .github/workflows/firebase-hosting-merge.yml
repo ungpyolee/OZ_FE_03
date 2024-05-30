@@ -32,7 +32,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Node.js 버전은 프로젝트에 맞게 조정
+          node-version: '18' # Node.js 버전을 18로 설정
       - name: Install dependencies
         run: npm install
         working-directory: ./05_react_redux/03/react-apple-app
@@ -47,4 +47,3 @@ jobs:
           channelId: live
           projectId: react-apple-tv-8e18d
           entryPoint: ./05_react_redux/03/react-apple-app
-
