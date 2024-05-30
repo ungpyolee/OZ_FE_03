@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { styled } from "styled-components"
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
-import app from "../firebase";
+import { app } from "../firebase";
 
 const initialUserData = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : {}
 
@@ -80,6 +80,9 @@ const Nav = () => {
           onClick={() => (window.location.href = "/")}
         />
       </Logo>
+
+
+
 
       {pathname === "/" ? (
         <Login
@@ -183,6 +186,7 @@ const Login = styled.a`
     border-color: transparent;
   }
 `
+
 
 const Logo = styled.a`
   padding: 0;
