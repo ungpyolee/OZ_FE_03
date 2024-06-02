@@ -43,9 +43,9 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_REACT_APPLE_TV_8A8E2 }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_REACT_APPLE_TV_8E18D }}
           channelId: live
-          projectId: react-apple-tv-8a8e2
+          projectId: react-apple-tv-8e18d
           entryPoint: ./05_react_redux/03/react-apple-app
 
 
