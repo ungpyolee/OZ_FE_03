@@ -21,6 +21,16 @@ export const AppReducer = (state, action) => {
                 ...state,
                 budget: action.payload
             }
+        case 'ADD_INCOME' :
+            return {
+                ...state,
+                income: [...state.income, action.payload]
+            }
+        case 'DELETE_INCOME' :
+            return {
+                ...state,
+                income: state.income.filter((income) => income.id !== action.payload)
+            }
         default:
             break;
     }
@@ -32,6 +42,11 @@ const initialState = {
         { id: crypto.randomUUID(), name: '밥먹기', cost: 1000 },
         { id: crypto.randomUUID(), name: '카드비', cost: 3000 },
         { id: crypto.randomUUID(), name: '교통비', cost: 7000 },
+    ],
+    income :[
+        { id: crypto.randomUUID(), name: '월급', amount : 50000},
+        { id: crypto.randomUUID(), name: '용돈', amount : 10000},
+
     ]
 }
 
@@ -42,6 +57,7 @@ export const AppContextProvider = (props) => {
     return (
         <AppContext.Provider value={{
             expenses: state.expenses,
+            income: state.income,
             budget: state.budget,
             dispatch
         }}>
