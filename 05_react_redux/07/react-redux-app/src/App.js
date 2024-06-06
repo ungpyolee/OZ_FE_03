@@ -1,13 +1,26 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios'
 
 function App() {
 
   const counter = useSelector((state) => state.counter)
   const todos = useSelector((state) => state.todos)
-  const [todoValue, setTodoValue] = useState('')
+  const posts = useSelector((state) => state.posts)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    fetchPosts();
+  }, [])
+
+  async function fetchPosts() {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    console.log(response);
+    dispatch({ type: 'FETCH_POSTS', payload: response.data});
+  }
+
+  const [todoValue, setTodoValue] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,6 +37,12 @@ function App() {
   return (
     <div className="App">
 
+
+    <div>
+      <ul>
+        {posts.map(post => <li key={post.id}>{post.title}</li>)}
+      </ul>
+    </div>
     <div>
       <ul>
         {todos.map((todo, index)=> <li key={index}>{todo}</li>)}
