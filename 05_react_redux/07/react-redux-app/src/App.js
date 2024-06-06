@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios'
+import {fetchPosts} from './actions/post';
 
 function App() {
 
@@ -11,15 +11,10 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    fetchPosts();
+    dispatch(fetchPosts());
   }, [])
 
-  async function fetchPosts() {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
-    console.log(response);
-    dispatch({ type: 'FETCH_POSTS', payload: response.data});
-  }
-
+ 
   const [todoValue, setTodoValue] = useState('')
 
   const handleSubmit = (e) => {
@@ -40,7 +35,7 @@ function App() {
 
     <div>
       <ul>
-        {posts.map(post => <li key={post.id}>{post.title}</li>)}
+        {posts.map((post,i) => <li key={i}>{post.title}</li>)}
       </ul>
     </div>
     <div>
