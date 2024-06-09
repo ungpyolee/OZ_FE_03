@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
     <div>
-      <h1>카운트:</h1>
-      <button>증가</button>
-      <button>감소</button>
+      <h1>카운트: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>증가</button>
+      <button onClick={() => setCount(count - 1)}>감소</button>
     </div>
   )
 }

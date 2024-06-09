@@ -1,7 +1,6 @@
 import React from 'react'
-import '@testing-library/jest-dom/extend-expect'
-import { render, screen, fireEvent } from '@testing-library/react';
-import App from './App';
+import { render, screen, fireEvent } from '@testing-library/react'
+import App from './App'
 
 test('초기 카운트는 0이다', () => {
   render(<App />)
