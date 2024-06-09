@@ -6,20 +6,41 @@ export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
   return todos;
 });
 
+const loadTodosFromLocalStorage= () => {
+  const todos = localStorage.getItem('todos');
+  return todos? JSON.parse(todos) : [];
+}
+
+const saveTodosToLocalStorage = (todos) => {
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+ 
 const todoSlice = createSlice({
   name: 'todos',
   initialState: {
-    items: [],
+    items: loadTodosFromLocalStorage(),
     status: 'idle',
     error: null,
   },
   reducers: {
     addTodo: (state, action) => {
       state.items.push(action.payload);
+      saveTodosToLocalStorage(state.items);
     },
     removeTodo: (state, action) => {
       state.items = state.items.filter((todo, index) => index !== action.payload);
+      saveTodosToLocalStorage(state.items);
     },
+    toggleTodo : (state, action) => {
+      const todo = state.items[action.payload];
+      if(todo) {
+        todo.completed = !todo.completed;
+        saveTodosToLocalStorage(state.items);
+      } 
+    },
+    setTodos : (state, action) => {
+      state.items = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -37,5 +58,5 @@ const todoSlice = createSlice({
   },
 });
 
-export const { addTodo, removeTodo } = todoSlice.actions;
+export const { addTodo, removeTodo, toggleTodo, setTodos } = todoSlice.actions;
 export default todoSlice.reducer;
