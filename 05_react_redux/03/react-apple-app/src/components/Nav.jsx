@@ -6,6 +6,7 @@ import { app } from "../firebase";
 
 const initialUserData = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : {}
 
+console.log(localStorage.getItem('userData'))
 const Nav = () => {
 
   const [show, setShow] = useState("false");
