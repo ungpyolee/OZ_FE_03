@@ -5,6 +5,10 @@
         "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
         "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
         "strict": true /* Enable all strict type-checking options. */,
-        "skipLibCheck": true /* Skip type checking all .d.ts files. */
-    }
+        "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+        "outDir": "dist", // 컴파일 폴더위치 지정
+        "noUncheckedIndexedAccess": true //상시 true를 하는것이 좋다. 엄격한 문법
+        // "lib": ["ES2022", "DOM"]
+    },
+    "include": ["src/**/*"] // src폴더 안에있는 모든 ts폴더를 컴파일
 }
