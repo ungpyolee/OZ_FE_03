@@ -26,12 +26,44 @@ function main() {
 main();
 
 // TS => 제네릭 프로미스
+// Promise<T>
 
-const fetchData = (): Promise<string> => {
+interface MyDataType {
+    id: number;
+    name: string;
+}
+
+type Config = Record<string, string>;
+
+// {
+//     "server": "https://api.somedomain.com",
+//     "env": "production"
+// }
+
+async function loadConfig(): Promise<Config> {
+    const response = await fetch('/api/config');
+    const configData: Config = await response.json();
+
+    return configData;
+}
+
+// 제네릭 패턴
+async function fetchData2<T>(url: string): Promise<T> {
+    const response = await fetch('/api/config');
+    const data = await response.json();
+
+    return data as Promise<T>;
+}
+
+const fetchData = (): Promise<MyDataType> => {
     return new Promise((resolve, reject) => {
-        const success = false;
+        const success = true;
         if (success) {
-            resolve('data fetch complete');
+            const data = {
+                id: 1,
+                name: 'test',
+            };
+            resolve(data);
         } else {
             reject('something went wrong ...');
         }
@@ -41,3 +73,14 @@ const fetchData = (): Promise<string> => {
 fetchData()
     .then((data) => console.log(data))
     .catch((error) => console.log(error));
+
+async function doFetch() {
+    try {
+        const data = await fetchData();
+        console.log(data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+doFetch();
